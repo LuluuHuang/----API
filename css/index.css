@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+* .nav {
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+* .nav .logo {
+  font-size: 24px;
+  color: #fff;
+}
+* .nav .menu a {
+  font-size: 24px;
+  color: white;
+  text-decoration: none;
+}
+* .banner {
+  height: 600px;
+  background-image: url("/img/mountain.jpeg");
+  background-position: cover;
+}
+* .keyWord {
+  border-radius: 10px;
+  border: none;
+  width: 100%;
+  height: 49px;
+}
+* .category, * .area, * .submit {
+  height: 49px;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+}
+* .category {
+  margin-right: 25px;
+}
+* .remind {
+  height: 48px;
+  background-color: black;
+  color: #fff;
+  font-size: 18px;
+}
+* .remind p {
+  margin: 0;
+}
+* .activity, * .hostel, * .food {
+  position: relative;
+}
+* .activity .moreBtn, * .hostel .moreBtn, * .food .moreBtn {
+  width: 144px;
+  height: 52px;
+  background-color: #FD975E;
+  border-radius: 100px;
+  position: absolute;
+  right: 60px;
+  font-size: 24px;
+  font-weight: 400;
+  color: white;
+  text-decoration: none;
+}
+* .title_tourist p, * .title_activity p, * .title_food p, * .title_hostel p {
+  font-size: 36px;
+}
+* .content_tourist {
+  height: 124px;
+  background-color: black;
+  color: #fff;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+}
+* .content_activity, * .content_food {
+  padding: 0;
+  height: 284px;
+  border-radius: 20px;
+  border: 1px solid rgba(221, 221, 221, 0.8666666667);
+}
+* .content_activity .img_activity, * .content_activity .img_food, * .content_food .img_activity, * .content_food .img_food {
+  width: 100%;
+  height: 168px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 20px 20px 0 0;
+}
+* .text {
+  padding: 10px 20px;
+}
+* .text .name {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+* .text .location, * .text .time, * .text .phone {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.5);
+}
+* .footer {
+  background-color: #FD975E;
+  color: white;
+  height: 64px;
+  font-size: 24px;
+  font-weight: 700;
+}
