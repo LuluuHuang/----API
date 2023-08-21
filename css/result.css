@@ -18,7 +18,7 @@
 }
 * .banner {
   height: 600px;
-  background-image: url("/img/mountain.jpeg");
+  background-image: url("./img/mountain.jpeg");
   background-position: cover;
 }
 * .keyWord {
@@ -81,4 +81,4 @@
   height: 64px;
   font-size: 24px;
   font-weight: 700;
-}
+}/*# sourceMappingURL=result.css.map */
