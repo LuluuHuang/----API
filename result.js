@@ -1,19 +1,19 @@
-console.log(window.location.search);
+import { cityData } from './city.js';
 const searchParams = new URLSearchParams(window.location.search);
 const searchResult = searchParams.get("q").split(",");
-console.log(searchResult);
 let category = searchResult[0];
 let city = searchResult[1];
-console.log(city);
-console.log(category);
 let section = document.querySelector('.section');
 let title = document.querySelector('.title');
-title.innerHTML = `<p>${city}</p>`;
+function findName(engName){
+    const findCity = cityData.find(city => city.engName === engName);
+    title.innerHTML = `<p>${findCity.Name}</p>`;
+}
+findName(city);
 if(category == 'ScenicSpot'){
-    fetch(`https://tdx.transportdata.tw/api/basic/v2/Tourism/ScenicSpot/${city}?%24top=10&%24format=JSON`)
+    fetch(`https://tdx.transportdata.tw/api/basic/v2/Tourism/ScenicSpot/${city}?%24top=12&%24format=JSON`)
         .then(res=>res.json())
         .then(data=>{
-            console.log(data);
             data.forEach((e,i) => {
                 section.innerHTML +=
                 `
@@ -28,7 +28,7 @@ if(category == 'ScenicSpot'){
             });
         })
 }else if(category == 'Restaurant'){
-    fetch(`https://tdx.transportdata.tw/api/basic/v2/Tourism/Restaurant/${city}?%24top=10&%24format=JSON`)
+    fetch(`https://tdx.transportdata.tw/api/basic/v2/Tourism/Restaurant/${city}?%24top=12&%24format=JSON`)
     .then(res=>res.json())
     .then(data=>{
         data.forEach((e,i) => {
@@ -45,7 +45,7 @@ if(category == 'ScenicSpot'){
         });
     })
 }else if(category == 'Hotel'){
-    fetch(`https://tdx.transportdata.tw/api/basic/v2/Tourism/Hotel/${city}?%24top=10&%24format=JSON`)
+    fetch(`https://tdx.transportdata.tw/api/basic/v2/Tourism/Hotel/${city}?%24top=12&%24format=JSON`)
     .then(res=>res.json())
     .then(data=>{
         data.forEach((e,i) => {
@@ -62,7 +62,7 @@ if(category == 'ScenicSpot'){
         });
     })
 }else if(category == 'Activity'){
-    fetch(`https://tdx.transportdata.tw/api/basic/v2/Tourism/Activity/${city}?%24top=10&%24format=JSON`)
+    fetch(`https://tdx.transportdata.tw/api/basic/v2/Tourism/Activity/${city}?%24top=12&%24format=JSON`)
     .then(res=>res.json())
     .then(data=>{
         data.forEach((e,i) => {
