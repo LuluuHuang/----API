@@ -1,6 +1,5 @@
 
 import { cityData } from './city.js';
-console.log(cityData);
 
 let category = document.querySelector('.category');
 let categorySelect;
@@ -8,6 +7,7 @@ let area = document.querySelector('.area');
 let areaSelect;
 let submit = document.querySelector('.submit');
 
+//import city.js資料渲染option
 cityData.forEach((e)=>{
     console.log(e.Name);
     area.innerHTML+=`
