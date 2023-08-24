@@ -75,10 +75,17 @@
   font-weight: 500;
   color: rgba(0, 0, 0, 0.5);
 }
+* .pageNumber {
+  cursor: pointer;
+}
+* .pageNumber span:hover {
+  text-decoration: underline;
+  color: #FD975E;
+}
 * .footer {
   background-color: #FD975E;
   color: white;
   height: 64px;
   font-size: 24px;
   font-weight: 700;
-}
+}/*# sourceMappingURL=result.css.map */

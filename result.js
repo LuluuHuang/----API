@@ -157,3 +157,73 @@ if(urlCity === 'all'){
         });
     })
 }
+let page = document.querySelector('.page');
+let pageAll = [0,1,2,3,4,5];
+pageAll.forEach((p)=>{
+    page.innerHTML+=`
+        <p class="pageNumber" >&emsp;<span>${p+1}</span>&emsp;|</p>
+    `
+})
+let pageNumber = document.querySelectorAll('.pageNumber');
+pageNumber.forEach((e,i)=>{
+    e.addEventListener('click',function(){
+        let skipPage = i*12;
+        console.log(skipPage);
+        nextPage(skipPage);
+    });
+})
+
+function nextPage(skipPage){
+    section.innerHTML='';
+    fetch(`https://tdx.transportdata.tw/api/basic/v2/Tourism/${urlCategory}/${urlCity}?%24top=12&%24skip=${skipPage}&%24format=JSON`)
+    .then(res=>res.json())
+    .then(data=>{
+        data.forEach((e) => {
+            if(urlCategory == 'ScenicSpot'){
+                section.innerHTML +=
+            `
+                <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
+                    <img class="img" src="${e.Picture.PictureUrl1}" alt="">
+                    <div class="text">
+                        <p class="name">${e.ScenicSpotName}</p>
+                        <p class="phone">${e.Phone}</p>
+                    </div>
+                </div>
+            `
+            }else if(urlCategory == 'Restaurant'){
+                section.innerHTML +=
+            `
+                <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
+                    <img class="img" src="${e.Picture.PictureUrl1}" alt="">
+                    <div class="text">
+                        <p class="name">${e.RestaurantName}</p>
+                        <p class="time">${e.OpenTime}</p>
+                    </div>
+                </div>
+            `
+            }else if(urlCategory == 'Hotel'){
+                section.innerHTML +=
+            `
+                <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
+                    <img class="img" src="${e.Picture.PictureUrl1}" alt="">
+                    <div class="text">
+                        <p class="name">${e.HotelName}</p>
+                        <p class="address">${e.Address}</p>
+                    </div>
+                </div>
+            `
+            }else if(urlCategory == 'Activity'){
+                section.innerHTML +=
+            `
+                <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
+                    <img class="img" src="${e.Picture.PictureUrl1}" alt="">
+                    <div class="text">
+                        <p class="name">${e.ActivityName}</p>
+                        <p class="address">${e.Address}</p>
+                    </div>
+                </div>
+            `
+            }
+        });
+    })
+}

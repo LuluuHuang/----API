@@ -77,6 +77,13 @@
             color: rgba($color: #000000, $alpha: 0.5);
         }
     }
+    .pageNumber{
+        cursor: pointer;
+    }
+    .pageNumber span:hover{
+        text-decoration: underline;
+        color: #FD975E;
+    }
     .footer{
         background-color: #FD975E;
         color: white;
