@@ -5,6 +5,7 @@ console.log(cityData);
 let category = document.querySelector('.category');
 let categorySelect;
 let area = document.querySelector('.area');
+let areaSelect;
 let submit = document.querySelector('.submit');
 
 cityData.forEach((e)=>{
@@ -19,8 +20,8 @@ function submitForm(){
     console.log(category.value);
     if(category.value !== '' && area.value !== ''){
         categorySelect = category.value;
-        area = area.value;
-        let result = [categorySelect,area]
+        areaSelect = area.value;
+        let result = [categorySelect,areaSelect];
         window.open("result.html?q=" + encodeURIComponent(result), "_blank");
     }else{
         alert('請選擇類別');
