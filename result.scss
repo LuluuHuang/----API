@@ -4,17 +4,24 @@
         height: 100px;
         width: 100%;
         position: fixed;
-        background-color:rgba($color: #ffff, $alpha: 0.5);
+        background-color:rgba($color: #999191, $alpha: 0.5);
+        font-weight: 800;
+        z-index: 1;
+        a{
+            color: #ffff;
+            text-decoration: none;
+        }
+        a:hover{
+            color: inherit;
+        }
         .logo{
-            font-size: 24px;
+            font-size: 30px;
             color: #fff;
         }
         .menu{
-            a{
-                font-size: 24px;
-                color: #ffff;
-                text-decoration: none;
-            }
+            font-size: 24px;
+            color: #ffff;
+            text-decoration: none;
         }
     }
     .banner{
@@ -53,29 +60,36 @@
     }
     .content{
         padding: 0;
-        height: 284px;
         border-radius: 20px;
-        border: 1px solid #dddd;
-        .img{
-            width: 100%;
-            height: 168px;
-            object-fit: cover;
-            border-radius: 20px 20px 0 0;
+        border: 3px solid #dddd;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+        a{
+            text-decoration: none;
+            .img{
+                width: 100%;
+                height: 168px;
+                object-fit: cover;
+                border-radius: 17px 17px 0 0;
+            }
+            .text{
+                padding:10px 20px;
+                .name{
+                    margin: 0;
+                    font-size: 24px;
+                    font-weight: 700;
+                    color: #FD975E;
+                }
+                .location,.time,.phone,.address{
+                    margin: 0;
+                    font-size: 18px;
+                    font-weight: 500;
+                    color: rgba($color: #000000, $alpha: 0.5);
+                }
+            }
         }
     }
-    .text{
-        padding:10px 20px;
-        .name{
-            margin: 0;
-            font-size: 24px;
-            font-weight: 700;
-        }
-        .location,.time,.phone,.address{
-            margin: 0;
-            font-size: 18px;
-            font-weight: 500;
-            color: rgba($color: #000000, $alpha: 0.5);
-        }
+    .content:active{
+        border-color:  #FD975E;
     }
     .pageNumber{
         cursor: pointer;

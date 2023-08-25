@@ -5,13 +5,22 @@
   height: 100px;
   width: 100%;
   position: fixed;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(153, 145, 145, 0.5);
+  font-weight: 800;
+  z-index: 1;
+}
+* .nav a {
+  color: white;
+  text-decoration: none;
+}
+* .nav a:hover {
+  color: inherit;
 }
 * .nav .logo {
-  font-size: 24px;
+  font-size: 30px;
   color: #fff;
 }
-* .nav .menu a {
+* .nav .menu {
   font-size: 24px;
   color: white;
   text-decoration: none;
@@ -50,30 +59,37 @@
 }
 * .content {
   padding: 0;
-  height: 284px;
   border-radius: 20px;
-  border: 1px solid rgba(221, 221, 221, 0.8666666667);
+  border: 3px solid rgba(221, 221, 221, 0.8666666667);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
-* .content .img {
+* .content a {
+  text-decoration: none;
+}
+* .content a .img {
   width: 100%;
   height: 168px;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 20px 20px 0 0;
+  border-radius: 17px 17px 0 0;
 }
-* .text {
+* .content a .text {
   padding: 10px 20px;
 }
-* .text .name {
+* .content a .text .name {
   margin: 0;
   font-size: 24px;
   font-weight: 700;
+  color: #FD975E;
 }
-* .text .location, * .text .time, * .text .phone, * .text .address {
+* .content a .text .location, * .content a .text .time, * .content a .text .phone, * .content a .text .address {
   margin: 0;
   font-size: 18px;
   font-weight: 500;
   color: rgba(0, 0, 0, 0.5);
+}
+* .content:active {
+  border-color: #FD975E;
 }
 * .pageNumber {
   cursor: pointer;
@@ -88,4 +104,4 @@
   height: 64px;
   font-size: 24px;
   font-weight: 700;
-}/*# sourceMappingURL=result.css.map */
+}

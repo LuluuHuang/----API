@@ -14,6 +14,22 @@ let area = document.querySelector('.area');
 let areaSelect;
 let submit = document.querySelector('.submit');
 
+//製作頁數
+let page = document.querySelector('.page');
+let pageAll = [0,1,2,3,4,5];
+pageAll.forEach((p)=>{
+    page.innerHTML+=`
+        <p class="pageNumber" >&emsp;<span>${p+1}</span>&emsp;|</p>
+    `
+})
+let pageNumber = document.querySelectorAll('.pageNumber');
+pageNumber.forEach((e,i)=>{
+    e.addEventListener('click',function(){
+        let skipPage = i*12;
+        nextPage(skipPage);
+    });
+})
+
 //import city.js資料渲染option
 cityData.forEach((e)=>{
     area.innerHTML+=`
@@ -53,127 +69,77 @@ function findName(engName){
 }
 findName(urlCity);
 
-if(urlCity === 'all'){
-    fetch(`https://tdx.transportdata.tw/api/basic/v2/Tourism/${urlCategory}?%24top=12&%24format=JSON`)
-        .then(res=>res.json())
-        .then(data=>{
-            data.forEach((e) => {
-                if(urlCategory == 'ScenicSpot'){
-                    section.innerHTML +=
-                `
-                    <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
-                        <img class="img" src="${e.Picture.PictureUrl1}" alt="">
-                        <div class="text">
-                            <p class="name">${e.ScenicSpotName}</p>
-                            <p class="phone">${e.Phone}</p>
-                        </div>
-                    </div>
-                `
-                }else if(urlCategory == 'Restaurant'){
-                    section.innerHTML +=
-                `
-                    <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
-                        <img class="img" src="${e.Picture.PictureUrl1}" alt="">
-                        <div class="text">
-                            <p class="name">${e.RestaurantName}</p>
-                            <p class="time">${e.OpenTime}</p>
-                        </div>
-                    </div>
-                `
-                }else if(urlCategory == 'Hotel'){
-                    section.innerHTML +=
-                `
-                    <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
-                        <img class="img" src="${e.Picture.PictureUrl1}" alt="">
-                        <div class="text">
-                            <p class="name">${e.HotelName}</p>
-                            <p class="address">${e.Address}</p>
-                        </div>
-                    </div>
-                `
-                }else if(urlCategory == 'Activity'){
-                    section.innerHTML +=
-                `
-                    <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
-                        <img class="img" src="${e.Picture.PictureUrl1}" alt="">
-                        <div class="text">
-                            <p class="name">${e.ActivityName}</p>
-                            <p class="address">${e.Address}</p>
-                        </div>
-                    </div>
-                `
-                }
-            })})
-}else{
-    fetch(`https://tdx.transportdata.tw/api/basic/v2/Tourism/${urlCategory}/${urlCity}?%24top=12&%24format=JSON`)
-    .then(res=>res.json())
-    .then(data=>{
-        data.forEach((e) => {
-            if(urlCategory == 'ScenicSpot'){
-                section.innerHTML +=
-            `
-                <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
-                    <img class="img" src="${e.Picture.PictureUrl1}" alt="">
-                    <div class="text">
-                        <p class="name">${e.ScenicSpotName}</p>
-                        <p class="phone">${e.Phone}</p>
-                    </div>
-                </div>
-            `
-            }else if(urlCategory == 'Restaurant'){
-                section.innerHTML +=
-            `
-                <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
-                    <img class="img" src="${e.Picture.PictureUrl1}" alt="">
-                    <div class="text">
-                        <p class="name">${e.RestaurantName}</p>
-                        <p class="time">${e.OpenTime}</p>
-                    </div>
-                </div>
-            `
-            }else if(urlCategory == 'Hotel'){
-                section.innerHTML +=
-            `
-                <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
-                    <img class="img" src="${e.Picture.PictureUrl1}" alt="">
-                    <div class="text">
-                        <p class="name">${e.HotelName}</p>
-                        <p class="address">${e.Address}</p>
-                    </div>
-                </div>
-            `
-            }else if(urlCategory == 'Activity'){
-                section.innerHTML +=
-            `
-                <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
-                    <img class="img" src="${e.Picture.PictureUrl1}" alt="">
-                    <div class="text">
-                        <p class="name">${e.ActivityName}</p>
-                        <p class="address">${e.Address}</p>
-                    </div>
-                </div>
-            `
-            }
-        });
-    })
-}
-let page = document.querySelector('.page');
-let pageAll = [0,1,2,3,4,5];
-pageAll.forEach((p)=>{
-    page.innerHTML+=`
-        <p class="pageNumber" >&emsp;<span>${p+1}</span>&emsp;|</p>
-    `
-})
-let pageNumber = document.querySelectorAll('.pageNumber');
-pageNumber.forEach((e,i)=>{
-    e.addEventListener('click',function(){
-        let skipPage = i*12;
-        console.log(skipPage);
-        nextPage(skipPage);
-    });
-})
-
+nextPage(0);//先叫出第一頁
 function nextPage(skipPage){
+    if(urlCity === 'all'){
+        section.innerHTML='';
+            fetch(`https://tdx.transportdata.tw/api/basic/v2/Tourism/${urlCategory}?%24top=12&%24skip=${skipPage}&%24format=JSON`)
+                .then(res=>res.json())
+                .then(data=>{
+                    data.forEach((e,i) => {
+                        if(urlCategory == 'ScenicSpot'){
+                            section.innerHTML +=
+                        `
+                            <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
+                                <a href="./detail.html" target="_blank">
+                                    <img class="img" src="${e.Picture.PictureUrl1}" alt="">
+                                    <div class="text">
+                                        <p class="name">${e.ScenicSpotName}${i}</p>
+                                        <p class="phone">${e.Phone}</p>
+                                    </div>
+                                </a>
+                            </div>
+                        `
+                        }else if(urlCategory == 'Restaurant'){
+                            section.innerHTML +=
+                        `
+                            <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
+                            <a href="./detail.html" target="_blank">
+                                <img class="img" src="${e.Picture.PictureUrl1}" alt="">
+                                <div class="text">
+                                    <p class="name">${e.RestaurantName}</p>
+                                    <p class="time">${e.OpenTime}</p>
+                                </div>
+                                </a>
+                            </div>
+                        `
+                        }else if(urlCategory == 'Hotel'){
+                            section.innerHTML +=
+                        `
+                            <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
+                            <a href="./detail.html" target="_blank">
+                                <img class="img" src="${e.Picture.PictureUrl1}" alt="">
+                                <div class="text">
+                                    <p class="name">${e.HotelName}</p>
+                                    <p class="address">${e.Address}</p>
+                                </div>
+                                </a>
+                            </div>
+                        `
+                        }else if(urlCategory == 'Activity'){
+                            section.innerHTML +=
+                        `
+                            <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
+                            <a href="./detail.html" target="_blank">
+                                <img class="img" src="${e.Picture.PictureUrl1}" alt="">
+                                <div class="text">
+                                    <p class="name">${e.ActivityName}</p>
+                                    <p class="address">${e.Address}</p>
+                                </div>
+                                </a>
+                            </div>
+                        `
+                        }
+                        let content = document.querySelectorAll('.content');
+                        content.forEach((e,i)=>{
+                            e.addEventListener('click',function(){
+                                localStorage.setItem('detailData', JSON.stringify(data[i]));
+                                localStorage.setItem('category', urlCategory);
+                                localStorage.setItem('city', urlCity);
+                            })
+                        })
+                    })})
+    }else{
     section.innerHTML='';
     fetch(`https://tdx.transportdata.tw/api/basic/v2/Tourism/${urlCategory}/${urlCity}?%24top=12&%24skip=${skipPage}&%24format=JSON`)
     .then(res=>res.json())
@@ -183,47 +149,63 @@ function nextPage(skipPage){
                 section.innerHTML +=
             `
                 <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
+                <a href="./detail.html" target="_blank">
                     <img class="img" src="${e.Picture.PictureUrl1}" alt="">
                     <div class="text">
                         <p class="name">${e.ScenicSpotName}</p>
                         <p class="phone">${e.Phone}</p>
                     </div>
+                    </a>
                 </div>
             `
             }else if(urlCategory == 'Restaurant'){
                 section.innerHTML +=
             `
                 <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
+                <a href="./detail.html" target="_blank">
                     <img class="img" src="${e.Picture.PictureUrl1}" alt="">
                     <div class="text">
                         <p class="name">${e.RestaurantName}</p>
                         <p class="time">${e.OpenTime}</p>
                     </div>
+                    </a>
                 </div>
             `
             }else if(urlCategory == 'Hotel'){
                 section.innerHTML +=
             `
                 <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
+                <a href="./detail.html" target="_blank">
                     <img class="img" src="${e.Picture.PictureUrl1}" alt="">
                     <div class="text">
                         <p class="name">${e.HotelName}</p>
                         <p class="address">${e.Address}</p>
                     </div>
+                    </a>
                 </div>
             `
             }else if(urlCategory == 'Activity'){
                 section.innerHTML +=
             `
                 <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
+                <a href="./detail.html" target="_blank">
                     <img class="img" src="${e.Picture.PictureUrl1}" alt="">
                     <div class="text">
                         <p class="name">${e.ActivityName}</p>
                         <p class="address">${e.Address}</p>
                     </div>
+                    </a>
                 </div>
             `
             }
+            let content = document.querySelectorAll('.content');
+            content.forEach((e,i)=>{
+                e.addEventListener('click',function(){
+                    localStorage.setItem('detailData', JSON.stringify(data[i]));
+                    localStorage.setItem('category', urlCategory);
+                    localStorage.setItem('city', urlCity);
+                })
+            })
         });
     })
-}
+}}

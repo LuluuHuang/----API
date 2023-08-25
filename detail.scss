@@ -1,0 +1,43 @@
+*{
+    box-sizing: border-box;
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
+    a:hover{
+        color: inherit;
+    }
+    .nav{
+        height: 100px;
+        width: 100%;
+        position: fixed;
+        background-color:rgba($color: #999191, $alpha: 0.5);
+        font-weight: 800;
+        .logo{
+            font-size: 30px;
+            color: #fff;
+        }
+        .menu{
+            a{
+                font-size: 24px;
+                color: #ffff;
+                text-decoration: none;
+            }
+        }
+    }
+    .guide{
+        padding: 15vh 5vw 0 5vw;
+    }
+    .title{
+        padding: 0 5vw 0 5vw;
+    }
+    .pic{
+        padding: 0;
+        img{
+            width: 100%;
+        }
+    }
+    .introduce,.location{
+        padding: 5vh 5vw 0 5vw;
+    }
+}
