@@ -1,4 +1,5 @@
 import { cityData } from './city.js';
+import { categoryData } from './category.js';
 //從網址抓出搜尋項目
 const searchParams = new URLSearchParams(window.location.search);
 const searchResult = searchParams.get("q").split(",");
@@ -36,7 +37,12 @@ cityData.forEach((e)=>{
     <option value="${e.engName}">${e.Name}</option>
     `
 })
-
+//import category.js資料渲染option
+categoryData.forEach((e)=>{
+    category.innerHTML+=`
+    <option value="${e.engCategory}">${e.Category}</option>
+    `
+})
 //讓搜尋結果的option默認前一頁搜尋項目
 for(let i = 0; i < area.options.length; i++){
     if(area.options[i].value === urlCity){
@@ -63,11 +69,17 @@ function submitForm(){
 }
 
 //從city.js找搜尋城市的中文，渲染到title
-function findName(engName){
-    const findCity = cityData.find(city => city.engName === engName);
+let findCity;
+let findCategory;
+function findCityName(engName){
+    findCity = cityData.find(city => city.engName === engName);
     title.innerHTML = `<p>${findCity.Name}</p>`;
 }
-findName(urlCity);
+findCityName(urlCity);
+function findCategoryName(engCategory){
+    findCategory = categoryData.find(category=>category.engCategory === engCategory);
+}
+findCategoryName(urlCategory);
 
 nextPage(0);//先叫出第一頁
 function nextPage(skipPage){
@@ -82,7 +94,7 @@ function nextPage(skipPage){
                         `
                             <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
                                 <a href="./detail.html" target="_blank">
-                                    <img class="img" src="${e.Picture.PictureUrl1}" alt="">
+                                    <img class="img" src="${e.Picture.PictureUrl1}" alt="圖片未提供">
                                     <div class="text">
                                         <p class="name">${e.ScenicSpotName}${i}</p>
                                         <p class="phone">${e.Phone}</p>
@@ -95,7 +107,7 @@ function nextPage(skipPage){
                         `
                             <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
                             <a href="./detail.html" target="_blank">
-                                <img class="img" src="${e.Picture.PictureUrl1}" alt="">
+                                <img class="img" src="${e.Picture.PictureUrl1}" alt="圖片未提供">
                                 <div class="text">
                                     <p class="name">${e.RestaurantName}</p>
                                     <p class="time">${e.OpenTime}</p>
@@ -108,7 +120,7 @@ function nextPage(skipPage){
                         `
                             <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
                             <a href="./detail.html" target="_blank">
-                                <img class="img" src="${e.Picture.PictureUrl1}" alt="">
+                                <img class="img" src="${e.Picture.PictureUrl1}" alt="圖片未提供">
                                 <div class="text">
                                     <p class="name">${e.HotelName}</p>
                                     <p class="address">${e.Address}</p>
@@ -121,7 +133,7 @@ function nextPage(skipPage){
                         `
                             <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
                             <a href="./detail.html" target="_blank">
-                                <img class="img" src="${e.Picture.PictureUrl1}" alt="">
+                                <img class="img" src="${e.Picture.PictureUrl1}" alt="圖片未提供">
                                 <div class="text">
                                     <p class="name">${e.ActivityName}</p>
                                     <p class="address">${e.Address}</p>
@@ -134,8 +146,8 @@ function nextPage(skipPage){
                         content.forEach((e,i)=>{
                             e.addEventListener('click',function(){
                                 localStorage.setItem('detailData', JSON.stringify(data[i]));
-                                localStorage.setItem('category', urlCategory);
-                                localStorage.setItem('city', urlCity);
+                                localStorage.setItem('category', findCategory.Category);
+                                localStorage.setItem('city', findCity.Name);
                             })
                         })
                     })})
@@ -202,8 +214,8 @@ function nextPage(skipPage){
             content.forEach((e,i)=>{
                 e.addEventListener('click',function(){
                     localStorage.setItem('detailData', JSON.stringify(data[i]));
-                    localStorage.setItem('category', urlCategory);
-                    localStorage.setItem('city', urlCity);
+                    localStorage.setItem('category', findCategory.Category);
+                    localStorage.setItem('city', findCity.Name);
                 })
             })
         });

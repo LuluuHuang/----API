@@ -17,11 +17,9 @@
   z-index: 1;
 }
 * .nav .logo {
-  font-size: 30px;
   color: #fff;
 }
 * .nav .menu a {
-  font-size: 24px;
   color: white;
   text-decoration: none;
 }
@@ -121,4 +119,4 @@
   height: 64px;
   font-size: 24px;
   font-weight: 700;
-}
+}/*# sourceMappingURL=index.css.map */

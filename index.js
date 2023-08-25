@@ -1,5 +1,7 @@
 
 import { cityData } from './city.js';
+import { categoryData } from './category.js';
+
 
 let category = document.querySelector('.category');
 let categorySelect;
@@ -14,7 +16,12 @@ cityData.forEach((e)=>{
     <option value="${e.engName}">${e.Name}</option>
     `
 })
-
+//import category.js資料渲染option
+categoryData.forEach((e)=>{
+    category.innerHTML+=`
+    <option value="${e.engCategory}">${e.Category}</option>
+    `
+})
 submit.addEventListener('click',submitForm);
 function submitForm(){
     console.log(category.value);
