@@ -67,6 +67,12 @@
   color: white;
   text-decoration: none;
 }
+@media (max-width: 768px) {
+  * .activity .moreBtn, * .hostel .moreBtn, * .food .moreBtn {
+    top: 75px;
+    right: calc(50% - 72px);
+  }
+}
 * .title_tourist p, * .title_activity p, * .title_food p, * .title_hostel p {
   font-size: 36px;
 }
@@ -119,4 +125,4 @@
   height: 64px;
   font-size: 24px;
   font-weight: 700;
-}/*# sourceMappingURL=index.css.map */
+}

@@ -1,3 +1,4 @@
+$primary:#FD975E;
 *{
     box-sizing: border-box;
     .nav{
@@ -77,7 +78,7 @@
                     margin: 0;
                     font-size: 24px;
                     font-weight: 700;
-                    color: #FD975E;
+                    color: $primary;
                 }
                 .location,.time,.phone,.address{
                     margin: 0;
@@ -89,17 +90,17 @@
         }
     }
     .content:active{
-        border-color:  #FD975E;
+        border-color:  $primary;
     }
     .pageNumber{
         cursor: pointer;
     }
     .pageNumber span:hover{
         text-decoration: underline;
-        color: #FD975E;
+        color: $primary;
     }
     .footer{
-        background-color: #FD975E;
+        background-color: $primary;
         color: white;
         height: 64px;
         font-size: 24px;

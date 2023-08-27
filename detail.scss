@@ -1,3 +1,4 @@
+$primary: #FD975E;
 *{
     box-sizing: border-box;
     a{
@@ -27,9 +28,15 @@
     }
     .guide{
         padding: 15vh 5vw 0 5vw;
+        p{
+            color: rgba(0, 0, 0, 0.5);
+        }
     }
     .title{
         padding: 0 5vw 0 5vw;
+        h1{
+            color: $primary;
+        }
     }
     .pic{
         padding: 0;

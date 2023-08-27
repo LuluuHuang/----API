@@ -1,3 +1,4 @@
+$primary:#FD975E;
 *{
     box-sizing: border-box;
     a{
@@ -60,7 +61,7 @@
         .moreBtn{
             width: 144px;
             height: 52px;
-            background-color: #FD975E;
+            background-color: $primary;
             border-radius: 100px;
             position: absolute;
             right: 60px;
@@ -68,6 +69,12 @@
             font-weight: 400;
             color: white;
             text-decoration: none;
+        }
+        @media (max-width:768px) {
+            .moreBtn{
+                top:75px;
+                right: calc(50% - 72px);
+            }
         }
     }
     .title_tourist,.title_activity,.title_food,.title_hostel{
@@ -98,10 +105,10 @@
         }
     }
     .content_activity:active{
-        border-color:  #FD975E;
+        border-color:  $primary;
     }
     .content_food:active{
-        border-color:  #FD975E;
+        border-color:  $primary;
     }
     .text{
         padding:10px 20px;
@@ -118,7 +125,7 @@
         }
     }
     .footer{
-        background-color: #FD975E;
+        background-color: $primary;
         color: white;
         height: 64px;
         font-size: 24px;

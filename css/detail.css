@@ -27,8 +27,14 @@
 * .guide {
   padding: 15vh 5vw 0 5vw;
 }
+* .guide p {
+  color: rgba(0, 0, 0, 0.5);
+}
 * .title {
   padding: 0 5vw 0 5vw;
+}
+* .title h1 {
+  color: #FD975E;
 }
 * .pic {
   padding: 0;
@@ -38,4 +44,4 @@
 }
 * .introduce, * .location {
   padding: 5vh 5vw 0 5vw;
-}/*# sourceMappingURL=detail.css.map */
+}

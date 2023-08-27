@@ -9,6 +9,10 @@ let area = document.querySelector('.area');
 let areaSelect;
 let submit = document.querySelector('.submit');
 
+let moreActivityBtn = document.querySelector('.moreActivityBtn');
+let moreRestaurantBtn = document.querySelector('.moreRestaurantBtn');
+let moreHotelBtn = document.querySelector('.moreHotelBtn');
+
 //import city.js資料渲染option
 cityData.forEach((e)=>{
     console.log(e.Name);
@@ -34,3 +38,13 @@ function submitForm(){
         alert('請選擇類別');
     }
 }
+
+moreActivityBtn.addEventListener('click',function(){
+    localStorage.setItem('categoryMore', 'Activity');
+});
+moreRestaurantBtn.addEventListener('click',function(){
+    localStorage.setItem('categoryMore', 'Restaurant');
+});
+moreHotelBtn.addEventListener('click',function(){
+    localStorage.setItem('categoryMore', 'Hotel');
+});

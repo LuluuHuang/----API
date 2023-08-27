@@ -96,8 +96,9 @@ function nextPage(skipPage){
                                 <a href="./detail.html" target="_blank">
                                     <img class="img" src="${e.Picture.PictureUrl1}" alt="圖片未提供">
                                     <div class="text">
-                                        <p class="name">${e.ScenicSpotName}${i}</p>
-                                        <p class="phone">${e.Phone}</p>
+                                        <p class="name">${e.ScenicSpotName}</p>
+                                        <p class="phone"><img src="./img/phone.png"/>${e.Phone}</p>
+                                        <p class="address"><img src="./img/address.png"/>${e.Address}</p>
                                     </div>
                                 </a>
                             </div>
@@ -110,7 +111,9 @@ function nextPage(skipPage){
                                 <img class="img" src="${e.Picture.PictureUrl1}" alt="圖片未提供">
                                 <div class="text">
                                     <p class="name">${e.RestaurantName}</p>
-                                    <p class="time">${e.OpenTime}</p>
+                                    <p class="time"><img src="./img/time.png"/>${e.OpenTime}</p>
+                                    <p class="phone"><img src="./img/phone.png"/>${e.Phone}</p>
+                                    <p class="address"><img src="./img/address.png"/>${e.Address}</p>
                                 </div>
                                 </a>
                             </div>
@@ -123,7 +126,8 @@ function nextPage(skipPage){
                                 <img class="img" src="${e.Picture.PictureUrl1}" alt="圖片未提供">
                                 <div class="text">
                                     <p class="name">${e.HotelName}</p>
-                                    <p class="address">${e.Address}</p>
+                                    <p class="phone"><img src="./img/phone.png"/>${e.Phone}</p>
+                                    <p class="address"><img src="./img/address.png"/>${e.Address}</p>
                                 </div>
                                 </a>
                             </div>
@@ -136,7 +140,7 @@ function nextPage(skipPage){
                                 <img class="img" src="${e.Picture.PictureUrl1}" alt="圖片未提供">
                                 <div class="text">
                                     <p class="name">${e.ActivityName}</p>
-                                    <p class="address">${e.Address}</p>
+                                    <p class="address"><img src="./img/address.png"/>${e.Address}</p>
                                 </div>
                                 </a>
                             </div>
@@ -165,7 +169,8 @@ function nextPage(skipPage){
                     <img class="img" src="${e.Picture.PictureUrl1}" alt="">
                     <div class="text">
                         <p class="name">${e.ScenicSpotName}</p>
-                        <p class="phone">${e.Phone}</p>
+                        <p class="phone"><img src="./img/phone.png"/>${e.Phone}</p>
+                        <p class="address"><img src="./img/address.png"/>${e.Address}</p>
                     </div>
                     </a>
                 </div>
@@ -178,7 +183,9 @@ function nextPage(skipPage){
                     <img class="img" src="${e.Picture.PictureUrl1}" alt="">
                     <div class="text">
                         <p class="name">${e.RestaurantName}</p>
-                        <p class="time">${e.OpenTime}</p>
+                        <p class="time"><img src="./img/time.png"/>${e.OpenTime}</p>
+                        <p class="phone"><img src="./img/phone.png"/>${e.Phone}</p>
+                        <p class="address"><img src="./img/address.png"/>${e.Address}</p>
                     </div>
                     </a>
                 </div>
@@ -191,7 +198,8 @@ function nextPage(skipPage){
                     <img class="img" src="${e.Picture.PictureUrl1}" alt="">
                     <div class="text">
                         <p class="name">${e.HotelName}</p>
-                        <p class="address">${e.Address}</p>
+                        <p class="phone"><img src="./img/phone.png"/>${e.Phone}</p>
+                        <p class="address"><img src="./img/address.png"/>${e.Address}</p>
                     </div>
                     </a>
                 </div>
@@ -204,7 +212,7 @@ function nextPage(skipPage){
                     <img class="img" src="${e.Picture.PictureUrl1}" alt="">
                     <div class="text">
                         <p class="name">${e.ActivityName}</p>
-                        <p class="address">${e.Address}</p>
+                        <p class="address"><img src="./img/address.png"/>${e.Address}</p>
                     </div>
                     </a>
                 </div>
