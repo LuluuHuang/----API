@@ -92,12 +92,12 @@ function nextPage(skipPage){
                         if(urlCategory == 'ScenicSpot'){
                             section.innerHTML +=
                         `
-                            <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
+                            <div class="col-lg-3 col-md-5 col-10 m-5 m-md-3 content p-0">
                                 <a href="./detail.html" target="_blank">
                                     <img class="img" src="${e.Picture.PictureUrl1}" alt="圖片未提供">
                                     <div class="text">
                                         <p class="name">${e.ScenicSpotName}</p>
-                                        <p class="phone"><img src="./img/phone.png"/>${e.Phone}</p>
+                                        <p class="phone"><img src="./img/phone.png"/>${e.Phone.replace('886-', '0')}</p>
                                         <p class="address"><img src="./img/address.png"/>${e.Address}</p>
                                     </div>
                                 </a>
@@ -106,13 +106,13 @@ function nextPage(skipPage){
                         }else if(urlCategory == 'Restaurant'){
                             section.innerHTML +=
                         `
-                            <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
+                            <div class="col-lg-3 col-md-5 col-10 m-5 m-md-3 content p-0">
                             <a href="./detail.html" target="_blank">
                                 <img class="img" src="${e.Picture.PictureUrl1}" alt="圖片未提供">
                                 <div class="text">
                                     <p class="name">${e.RestaurantName}</p>
                                     <p class="time"><img src="./img/time.png"/>${e.OpenTime}</p>
-                                    <p class="phone"><img src="./img/phone.png"/>${e.Phone}</p>
+                                    <p class="phone"><img src="./img/phone.png"/>${e.Phone.replace('886-', '0')}</p>
                                     <p class="address"><img src="./img/address.png"/>${e.Address}</p>
                                 </div>
                                 </a>
@@ -121,12 +121,12 @@ function nextPage(skipPage){
                         }else if(urlCategory == 'Hotel'){
                             section.innerHTML +=
                         `
-                            <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
+                            <div class="col-lg-3 col-md-5 col-10 m-5 m-md-3 content p-0">
                             <a href="./detail.html" target="_blank">
                                 <img class="img" src="${e.Picture.PictureUrl1}" alt="圖片未提供">
                                 <div class="text">
                                     <p class="name">${e.HotelName}</p>
-                                    <p class="phone"><img src="./img/phone.png"/>${e.Phone}</p>
+                                    <p class="phone"><img src="./img/phone.png"/>${e.Phone.replace('886-', '0')}</p>
                                     <p class="address"><img src="./img/address.png"/>${e.Address}</p>
                                 </div>
                                 </a>
@@ -135,7 +135,7 @@ function nextPage(skipPage){
                         }else if(urlCategory == 'Activity'){
                             section.innerHTML +=
                         `
-                            <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
+                            <div class="col-lg-3 col-md-5 col-10 m-5 m-md-3 content p-0">
                             <a href="./detail.html" target="_blank">
                                 <img class="img" src="${e.Picture.PictureUrl1}" alt="圖片未提供">
                                 <div class="text">
@@ -164,13 +164,12 @@ function nextPage(skipPage){
             if(urlCategory == 'ScenicSpot'){
                 section.innerHTML +=
             `
-                <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
+                <div class="col-lg-3 col-md-5 col-10 m-5 m-md-3 content p-0">
                 <a href="./detail.html" target="_blank">
                     <img class="img" src="${e.Picture.PictureUrl1}" alt="">
                     <div class="text">
                         <p class="name">${e.ScenicSpotName}</p>
-                        <p class="phone"><img src="./img/phone.png"/>${e.Phone}</p>
-                        <p class="address"><img src="./img/address.png"/>${e.Address}</p>
+                        <p class="phone"><img src="./img/phone.png"/>${e.Phone.replace('886-', '0')}</p>
                     </div>
                     </a>
                 </div>
@@ -178,13 +177,13 @@ function nextPage(skipPage){
             }else if(urlCategory == 'Restaurant'){
                 section.innerHTML +=
             `
-                <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
+                <div class="col-lg-3 col-md-5 col-10 m-5 m-md-3 content p-0">
                 <a href="./detail.html" target="_blank">
                     <img class="img" src="${e.Picture.PictureUrl1}" alt="">
                     <div class="text">
                         <p class="name">${e.RestaurantName}</p>
                         <p class="time"><img src="./img/time.png"/>${e.OpenTime}</p>
-                        <p class="phone"><img src="./img/phone.png"/>${e.Phone}</p>
+                        <p class="phone"><img src="./img/phone.png"/>${e.Phone.replace('886-', '0')}</p>
                         <p class="address"><img src="./img/address.png"/>${e.Address}</p>
                     </div>
                     </a>
@@ -193,12 +192,12 @@ function nextPage(skipPage){
             }else if(urlCategory == 'Hotel'){
                 section.innerHTML +=
             `
-                <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
+                <div class="col-lg-3 col-md-5 col-10 m-5 m-md-3 content p-0">
                 <a href="./detail.html" target="_blank">
                     <img class="img" src="${e.Picture.PictureUrl1}" alt="">
                     <div class="text">
                         <p class="name">${e.HotelName}</p>
-                        <p class="phone"><img src="./img/phone.png"/>${e.Phone}</p>
+                        <p class="phone"><img src="./img/phone.png"/>${e.Phone.replace('886-', '0')}</p>
                         <p class="address"><img src="./img/address.png"/>${e.Address}</p>
                     </div>
                     </a>
@@ -207,7 +206,7 @@ function nextPage(skipPage){
             }else if(urlCategory == 'Activity'){
                 section.innerHTML +=
             `
-                <div class="col-md-3 col-10 m-5 m-md-1 content p-0">
+                <div class="col-lg-3 col-md-5 col-10 m-5 m-md-3 content p-0">
                 <a href="./detail.html" target="_blank">
                     <img class="img" src="${e.Picture.PictureUrl1}" alt="">
                     <div class="text">

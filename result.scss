@@ -68,7 +68,7 @@ $primary:#FD975E;
             text-decoration: none;
             .img{
                 width: 100%;
-                height: 168px;
+                height: 30vh;
                 object-fit: cover;
                 border-radius: 17px 17px 0 0;
             }
@@ -89,7 +89,7 @@ $primary:#FD975E;
             }
         }
     }
-    .content:active{
+    .content:hover{
         border-color:  $primary;
     }
     .pageNumber{

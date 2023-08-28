@@ -84,13 +84,34 @@ $primary:#FD975E;
     }
     .content_tourist{
         height: 124px;
-        background-color: black;
+        font-weight: 600;
         color: #fff;
         border-radius: 20px;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 36px;
+        font-size: 2rem;
+        text-align: center;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .taipei101{
+        background-image: url('https://stage.taipei101mall.com.tw/uploads/seo/616965e786aab.png');
+    }
+    .neiwan{
+        background-image: url('https://img.jatraveling.tw/2018/05/1525863341-b72e2cfa581a6ef54caf8d280d36322f.jpg');
+    }
+    .rainbow{
+        background-image: url('https://cdn.hk01.com/di/media/images/dw/20220804/631865005720997888340719.jpeg/2DAcGwgtiHwMt_CnkwLYA3w53P0YSji7gN_9NIDf_TQ?v=w1920');
+    }
+    .dakeng{
+        background-image: url('https://travel.taichung.gov.tw/image/31573?r=637837893159886666');
+    }
+    .fall{
+        background-image: url('https://www.ali-nsa.net/image/5861/1024x768');
     }
     .content_activity,.content_food{
         padding: 0;
@@ -99,15 +120,15 @@ $primary:#FD975E;
         box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
         .img_activity,.img_food{
             width: 100%;
-            height: 168px;
+            height: 30vh;
             object-fit: cover;
             border-radius: 17px 17px 0 0;
         }
     }
-    .content_activity:active{
+    .content_activity:hover{
         border-color:  $primary;
     }
-    .content_food:active{
+    .content_food:hover{
         border-color:  $primary;
     }
     .text{
