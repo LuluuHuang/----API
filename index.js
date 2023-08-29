@@ -8,6 +8,7 @@ let categorySelect;
 let area = document.querySelector('.area');
 let areaSelect;
 let submit = document.querySelector('.submit');
+let keyWord = document.querySelector('.keyWord');
 
 let moreActivityBtn = document.querySelector('.moreActivityBtn');
 let moreRestaurantBtn = document.querySelector('.moreRestaurantBtn');
