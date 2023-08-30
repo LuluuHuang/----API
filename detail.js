@@ -29,7 +29,6 @@ findCategoryName(category);
 
 guide.innerHTML =`<p>${chinessCategory}<span>&emsp;>&emsp;</span>${chinessCity}</p>`;
 
-
 if(city === 'all'){
     fetch(`https://tdx.transportdata.tw/api/basic/v2/Tourism/${category}?%24filter=contains%28${category}ID%2C%27${id}%27%29&%24format=JSON`)
     .then(res=>res.json())

@@ -5,8 +5,11 @@ const searchParams = new URLSearchParams(window.location.search);
 const searchResult = searchParams.get("q").split(",");
 let urlCategory = searchResult[0];
 let urlCity = searchResult[1];
+let urlKeyWord = encodeURIComponent(searchResult[2]);
 let section = document.querySelector('.section');
 let title = document.querySelector('.title');
+let keyWord = document.querySelector('.keyWord');
+let keyWordInput;
 
 //宣告banner的元素
 let category = document.querySelector('.category');
@@ -58,13 +61,15 @@ for(let i = 0; i < category.options.length; i++){
 submit.addEventListener('click',submitForm);
 function submitForm(){
     console.log(category.value);
-    if(category.value !== '' && area.value !== ''){
+    if(category.value !== '' && area.value !== ''&& keyWord.value ==''){
         categorySelect = category.value;
         areaSelect = area.value;
         let result = [categorySelect,areaSelect];
         window.open("result.html?q=" + encodeURIComponent(result), "_blank");
-    }else{
-        alert('請選擇類別');
+    }else if(category.value !== '' && keyWord.value !=='' && area.value === 'all'){
+        keyWordInput = keyWord.value;
+        categorySelect = category.value;
+        window.open(`result.html?q=${categorySelect}%2Call%2C${keyWordInput}` , "_blank");
     }
 }
 
@@ -83,6 +88,79 @@ findCategoryName(urlCategory);
 
 nextPage(0);//先叫出第一頁
 function nextPage(skipPage){
+    if(searchResult.length===3){
+        section.innerHTML='';
+            fetch(`https://tdx.transportdata.tw/api/basic/v2/Tourism/${urlCategory}?%24filter=contains%28${urlCategory}Name%2C%27${urlKeyWord}%27%29&%24top=12&%24skip=${skipPage}&%24format=JSON`)
+                .then(res=>res.json())
+                .then(data=>{
+                    data.forEach((e) => {
+                        if(e.Picture.PictureUrl1 === undefined){
+                            e.Picture.PictureUrl1 = `./img/mountain.jpeg`;
+                        }
+                        if(e.Address === undefined){
+                            e.Address = `店家未提供`;
+                        }
+                        if(urlCategory == 'ScenicSpot'){
+                            section.innerHTML +=
+                        `
+                            <div class="col-lg-3 col-md-5 col-10 m-5 m-md-3 content p-0">
+                                <a href="./detail.html?q=ScenicSpot%2C${e.ScenicSpotID}%2Call" target="_blank">
+                                    <img class="img" src="${e.Picture.PictureUrl1}" alt="圖片未提供">
+                                    <div class="text">
+                                        <p class="name">${e.ScenicSpotName}</p>
+                                        <p class="phone"><img src="./img/phone.png"/>${e.Phone.replace('886-', '0')}</p>
+                                        <p class="address"><img src="./img/address.png"/>${e.Address}</p>
+                                    </div>
+                                </a>
+                            </div>
+                        `
+                        }else if(urlCategory == 'Restaurant'){
+                            section.innerHTML +=
+                        `
+                            <div class="col-lg-3 col-md-5 col-10 m-5 m-md-3 content p-0">
+                            <a href="./detail.html?q=Restaurant%2C${e.RestaurantID}%2Call" target="_blank">
+                                <img class="img" src="${e.Picture.PictureUrl1}" alt="圖片未提供">
+                                <div class="text">
+                                    <p class="name">${e.RestaurantName}</p>
+                                    <p class="time"><img src="./img/time.png"/>${e.OpenTime}</p>
+                                    <p class="phone"><img src="./img/phone.png"/>${e.Phone.replace('886-', '0')}</p>
+                                    <p class="address"><img src="./img/address.png"/>${e.Address}</p>
+                                </div>
+                                </a>
+                            </div>
+                        `
+                        }else if(urlCategory == 'Hotel'){
+                            section.innerHTML +=
+                        `
+                            <div class="col-lg-3 col-md-5 col-10 m-5 m-md-3 content p-0">
+                            <a href="./detail.html?q=Hotel%2C${e.HotelID}%2Call" target="_blank">
+                                <img class="img" src="${e.Picture.PictureUrl1}" alt="圖片未提供">
+                                <div class="text">
+                                    <p class="name">${e.HotelName}</p>
+                                    <p class="phone"><img src="./img/phone.png"/>${e.Phone.replace('886-', '0')}</p>
+                                    <p class="address"><img src="./img/address.png"/>${e.Address}</p>
+                                </div>
+                                </a>
+                            </div>
+                        `
+                        }else if(urlCategory == 'Activity'){
+                            section.innerHTML +=
+                        `
+                            <div class="col-lg-3 col-md-5 col-10 m-5 m-md-3 content p-0">
+                            <a href="./detail.html?q=Activity%2C${e.ActivityID}%2Call" target="_blank">
+                                <img class="img" src="${e.Picture.PictureUrl1}" alt="圖片未提供">
+                                <div class="text">
+                                    <p class="name">${e.ActivityName}</p>
+                                    <p class="address"><img src="./img/address.png"/>${e.Address}</p>
+                                </div>
+                                </a>
+                            </div>
+                        `
+                        }
+                    })})
+    }else{
+
+    
     if(urlCity === 'all'){
         section.innerHTML='';
             fetch(`https://tdx.transportdata.tw/api/basic/v2/Tourism/${urlCategory}?%24top=12&%24skip=${skipPage}&%24format=JSON`)
@@ -223,4 +301,4 @@ function nextPage(skipPage){
             }
         });
     })
-}}
+}}}

@@ -11,6 +11,8 @@ let area = document.querySelector('.area');
 let areaSelect;
 let submit = document.querySelector('.submit');
 let categoryMore = localStorage.getItem('categoryMore');
+let keyWord = document.querySelector('.keyWord');
+let keyWordInput;
 
 //製作頁數
 let page = document.querySelector('.page');
@@ -50,13 +52,15 @@ for(let i = 0; i < category.options.length; i++){
 submit.addEventListener('click',submitForm);
 function submitForm(){
     console.log(category.value);
-    if(category.value !== '' && area.value !== ''){
+    if(category.value !== '' && area.value !== ''&& keyWord.value ==''){
         categorySelect = category.value;
         areaSelect = area.value;
         let result = [categorySelect,areaSelect];
         window.open("result.html?q=" + encodeURIComponent(result), "_blank");
-    }else{
-        alert('請選擇類別');
+    }else if(category.value !== '' && keyWord.value !=='' && area.value === 'all'){
+        keyWordInput = keyWord.value;
+        categorySelect = category.value;
+        window.open(`result.html?q=${categorySelect}%2Call%2C${keyWordInput}` , "_blank");
     }
 }
 
