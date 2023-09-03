@@ -82,8 +82,8 @@ function nextPage(skipPage){
                 section.innerHTML +=
             `
                 <div class="col-lg-3 col-md-5 col-10 m-5 m-md-3 content p-0">
-                <a href="./detail.html" target="_blank">
-                    <img class="img" src="${e.Picture.PictureUrl1}" alt="">
+                <a href="./detail.html?q=Restaurant%2C${e.RestaurantID}%2Call" target="_blank">
+                <img class="img" src="${e.Picture.PictureUrl1}" alt="">
                     <div class="text">
                         <p class="name">${e.RestaurantName}</p>
                         <p class="time"><img src="./img/time.png"/>${e.OpenTime}</p>
@@ -97,8 +97,8 @@ function nextPage(skipPage){
                 section.innerHTML +=
             `
                 <div class="col-lg-3 col-md-5 col-10 m-5 m-md-3 content p-0">
-                <a href="./detail.html" target="_blank">
-                    <img class="img" src="${e.Picture.PictureUrl1}" alt="">
+                <a href="./detail.html?q=Hotel%2C${e.HotelID}%2Call" target="_blank">
+                <img class="img" src="${e.Picture.PictureUrl1}" alt="">
                     <div class="text">
                         <p class="name">${e.HotelName}</p>
                         <p class="phone"><img src="./img/phone.png"/>${e.Phone.replace('886-', '0')}</p>
@@ -111,8 +111,8 @@ function nextPage(skipPage){
                 section.innerHTML +=
             `
                 <div class="col-lg-3 col-md-5 col-10 m-5 m-md-3 content p-0">
-                <a href="./detail.html" target="_blank">
-                    <img class="img" src="${e.Picture.PictureUrl1}" alt="">
+                <a href="./detail.html?q=Activity%2C${e.ActivityID}%2Call" target="_blank">
+                <img class="img" src="${e.Picture.PictureUrl1}" alt="">
                     <div class="text">
                         <p class="name">${e.ActivityName}</p>
                         <p class="address"><img src="./img/address.png"/>${e.Address}</p>
@@ -121,14 +121,6 @@ function nextPage(skipPage){
                 </div>
             `
             }
-            let content = document.querySelectorAll('.content');
-            content.forEach((e,i)=>{
-                e.addEventListener('click',function(){
-                    localStorage.setItem('detailData', JSON.stringify(data[i]));
-                    localStorage.setItem('category', findCategory.Category);
-                    localStorage.setItem('city', '不分區域');
-                })
-            })
         });
     })
 }
