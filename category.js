@@ -1,7 +1,7 @@
 export const categoryData = [
     {
         Category:"類別",
-        engCategory:" "
+        engCategory:""
     },
     {
         Category:"旅遊景點",

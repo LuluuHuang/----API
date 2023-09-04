@@ -28,10 +28,14 @@ categoryData.forEach((e)=>{
     <option value="${e.engCategory}">${e.Category}</option>
     `
 })
-submit.addEventListener('click',submitForm);
+submit.addEventListener('click',submitForm());
 function submitForm(){
-    console.log(category.value);
-    if(category.value !== '' && area.value !== ''&& keyWord.value ==''){
+    if(keyWord.value !== ''&& category.value===''){
+        console.log(123);
+        alert('請選擇種類');
+        return
+    }
+    if(category.value !== '' && area.value !== ''&& keyWord.value ===''){
         categorySelect = category.value;
         areaSelect = area.value;
         let result = [categorySelect,areaSelect];
@@ -42,13 +46,3 @@ function submitForm(){
         window.open(`result.html?q=${categorySelect}%2Call%2C${keyWordInput}` , "_blank");
     }
 }
-
-moreActivityBtn.addEventListener('click',function(){
-    localStorage.setItem('categoryMore', 'Activity');
-});
-moreRestaurantBtn.addEventListener('click',function(){
-    localStorage.setItem('categoryMore', 'Restaurant');
-});
-moreHotelBtn.addEventListener('click',function(){
-    localStorage.setItem('categoryMore', 'Hotel');
-});

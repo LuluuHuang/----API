@@ -75,7 +75,6 @@ function submitForm(){
 
 //從city.js找搜尋城市的中文，渲染到title
 let findCity;
-let findCategory;
 function findCityName(engName){
     findCity = cityData.find(city => city.engName === engName);
     title.innerHTML = `<p>${findCity.Name}</p>`;
@@ -159,8 +158,6 @@ function nextPage(skipPage){
                         }
                     })})
     }else{
-
-    
     if(urlCity === 'all'){
         section.innerHTML='';
             fetch(`https://tdx.transportdata.tw/api/basic/v2/Tourism/${urlCategory}?%24top=12&%24skip=${skipPage}&%24format=JSON`)
