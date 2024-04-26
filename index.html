@@ -11,14 +11,19 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./css/index.css" />
+    <script type="module" src="./index.js"></script>
   </head>
   <body>
     <div class="container-fluid">
       <div class="row nav">
-        <div class="col-lg-6 col-12 logo d-flex align-items-center justify-content-lg-start justify-content-center ps-lg-5 p-0 fs-3">
+        <div
+          class="col-lg-6 col-12 logo d-flex align-items-center justify-content-lg-start justify-content-center ps-lg-5 p-0 fs-3"
+        >
           <a href="index.html">TAIWAN台灣旅遊</a>
         </div>
-        <div class="col-lg-6 col-12 menu d-flex justify-content-around align-items-center fs-4">
+        <div
+          class="col-lg-6 col-12 menu d-flex justify-content-around align-items-center fs-4"
+        >
           <a href="">旅遊景點</a>
           <a href="">觀光活動</a>
           <a href="">住宿推薦</a>
@@ -38,12 +43,10 @@
         <div class="col-6">
           <div class="row">
             <div class="col-12 col-md-4 mb-3">
-              <select name="" id="" class="category px-3 col-5">
-              </select>
+              <select name="" id="" class="category px-3 col-5"></select>
             </div>
             <div class="col-12 col-md-4 mb-3">
-              <select class="area px-3 col-5">
-              </select>
+              <select class="area px-3 col-5"></select>
             </div>
             <div class="col-12 col-md-4 mb-3">
               <button class="submit">查詢</button>
@@ -61,11 +64,21 @@
         </div>
       </div>
       <div class="row d-flex justify-content-around">
-        <div class="col-md-2 col-8 mb-md-0 mb-4 content_tourist taipei101">台北101</div>
-        <div class="col-md-2 col-8 mb-md-0 mb-4 content_tourist neiwan">內灣老街</div>
-        <div class="col-md-2 col-8 mb-md-0 mb-4 content_tourist rainbow">彩虹眷村</div>
-        <div class="col-md-2 col-8 mb-md-0 mb-4 content_tourist dakeng">大坑風景區</div>
-        <div class="col-md-2 col-8 mb-md-0 mb-4 content_tourist fall">雲潭瀑布</div>
+        <div class="col-md-2 col-8 mb-md-0 mb-4 content_tourist taipei101">
+          台北101
+        </div>
+        <div class="col-md-2 col-8 mb-md-0 mb-4 content_tourist neiwan">
+          內灣老街
+        </div>
+        <div class="col-md-2 col-8 mb-md-0 mb-4 content_tourist rainbow">
+          彩虹眷村
+        </div>
+        <div class="col-md-2 col-8 mb-md-0 mb-4 content_tourist dakeng">
+          大坑風景區
+        </div>
+        <div class="col-md-2 col-8 mb-md-0 mb-4 content_tourist fall">
+          雲潭瀑布
+        </div>
       </div>
     </div>
     <div class="container-fluid activity">
@@ -83,27 +96,39 @@
         </div>
       </div>
       <div class="row d-flex justify-content-around section_activity">
-            <div class="col-md-3 col-10 m-5 m-md-0 content_activity">
-                <img class="img_activity" src="https://taiwantour.info/wp-content/uploads/2021/12/1640067860-8e832100f4500f9c85cb594df81e17d1.jpg" alt="">
-                <div class="text">
-                    <p class="name">2021台北燈節</p>
-                    <p class="location"><img src="./img/address.png"/>台北市萬華區</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-10 m-5 m-md-0 content_activity">
-                <img class="img_activity" src="https://ak-d.tripcdn.com/images/1mj4n12000b4ejkck77B2_Z_640_10000_R5.jpg_.webp?proc=autoorient" alt="">
-                <div class="text">
-                    <p class="name">2021台北陽明山花季</p>
-                    <p class="location"><img src="./img/address.png"/>台北市北投區</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-10 m-5 m-md-0 content_activity">
-                <img class="img_activity" src="https://wowlavie-aws.hmgcdn.com/file/article_all/2021%20ART%20TAIPEI%202.jpeg" alt="">
-                <div class="text">
-                    <p class="name">2021台北國際藝術節</p>
-                    <p class="location"><img src="./img/address.png"/>台北市中正區</p>
-                </div>
-            </div>
+        <div class="col-md-3 col-10 m-5 m-md-0 content_activity">
+          <img
+            class="img_activity"
+            src="https://taiwantour.info/wp-content/uploads/2021/12/1640067860-8e832100f4500f9c85cb594df81e17d1.jpg"
+            alt=""
+          />
+          <div class="text">
+            <p class="name">2021台北燈節</p>
+            <p class="location"><img src="./img/address.png" />台北市萬華區</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-10 m-5 m-md-0 content_activity">
+          <img
+            class="img_activity"
+            src="https://ak-d.tripcdn.com/images/1mj4n12000b4ejkck77B2_Z_640_10000_R5.jpg_.webp?proc=autoorient"
+            alt=""
+          />
+          <div class="text">
+            <p class="name">2021台北陽明山花季</p>
+            <p class="location"><img src="./img/address.png" />台北市北投區</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-10 m-5 m-md-0 content_activity">
+          <img
+            class="img_activity"
+            src="https://wowlavie-aws.hmgcdn.com/file/article_all/2021%20ART%20TAIPEI%202.jpeg"
+            alt=""
+          />
+          <div class="text">
+            <p class="name">2021台北國際藝術節</p>
+            <p class="location"><img src="./img/address.png" />台北市中正區</p>
+          </div>
+        </div>
       </div>
     </div>
     <div class="container-fluid hostel">
@@ -129,8 +154,8 @@
           />
           <div class="text">
             <p class="name">台北漫步旅店Meander Taipei Hostel</p>
-            <p class="location"><img src="./img/address.png"/>台北市萬華區</p>
-            <p class="phone"><img src="./img/phone.png"/>02 23830-1334</p>
+            <p class="location"><img src="./img/address.png" />台北市萬華區</p>
+            <p class="phone"><img src="./img/phone.png" />02 23830-1334</p>
           </div>
         </div>
         <div class="col-md-3 col-10 m-5 m-md-0 content_food">
@@ -141,8 +166,8 @@
           />
           <div class="text">
             <p class="name">華山文旅Wallsun Hotel Taipei</p>
-            <p class="location"><img src="./img/address.png"/>台北市中正區</p>
-            <p class="phone"><img src="./img/phone.png"/>02 2396-3388</p>
+            <p class="location"><img src="./img/address.png" />台北市中正區</p>
+            <p class="phone"><img src="./img/phone.png" />02 2396-3388</p>
           </div>
         </div>
         <div class="col-md-3 col-10 m-5 m-md-0 content_food">
@@ -152,9 +177,9 @@
             alt=""
           />
           <div class="text">
-            <p class="name">悠逸商旅UiNN Business Hotel </p>
-            <p class="location"><img src="./img/address.png"/>台北市士林區</p>
-            <p class="phone"><img src="./img/phone.png"/>02 2888-3966</p>
+            <p class="name">悠逸商旅UiNN Business Hotel</p>
+            <p class="location"><img src="./img/address.png" />台北市士林區</p>
+            <p class="phone"><img src="./img/phone.png" />02 2888-3966</p>
           </div>
         </div>
       </div>
@@ -166,6 +191,8 @@
         target="_blank"
         >查看更多</a
       >
+        查看更多
+      </button>
       <div class="row">
         <div
           class="col-12 title_food d-flex justify-content-center align-items-center my-5"
@@ -182,8 +209,10 @@
           />
           <div class="text">
             <p class="name">頂鮮台南擔仔麵 台北101店</p>
-            <p class="location"><img src="./img/address.png"/>台北市信義區</p>
-            <p class="time"><img src="./img/time.png"/>週一至週日 17:30–22:00</p>
+            <p class="location"><img src="./img/address.png" />台北市信義區</p>
+            <p class="time">
+              <img src="./img/time.png" />週一至週日 17:30–22:00
+            </p>
           </div>
         </div>
         <div class="col-md-3 col-10 m-5 m-md-0 content_food">
@@ -194,8 +223,10 @@
           />
           <div class="text">
             <p class="name">上吉燒肉-東區燒肉美食餐廳</p>
-            <p class="location"><img src="./img/address.png"/>台北市大安區</p>
-            <p class="time"><img src="./img/time.png"/>週一至週日 17:00–23:00</p>
+            <p class="location"><img src="./img/address.png" />台北市大安區</p>
+            <p class="time">
+              <img src="./img/time.png" />週一至週日 17:00–23:00
+            </p>
           </div>
         </div>
         <div class="col-md-3 col-10 m-5 m-md-0 content_food">
@@ -206,20 +237,23 @@
           />
           <div class="text">
             <p class="name">隱鍋 台北林森北路店</p>
-            <p class="location"><img src="./img/address.png"/>台北市中山區</p>
-            <p class="time"><img src="./img/time.png"/>週一至週日 11:00–23:30</p>
+            <p class="location"><img src="./img/address.png" />台北市中山區</p>
+            <p class="time">
+              <img src="./img/time.png" />週一至週日 11:00–23:30
+            </p>
           </div>
         </div>
       </div>
     </div>
-    
-    <div class="container-fluid footer d-flex justify-content-center align-items-center">
+
+    <div
+      class="container-fluid footer d-flex justify-content-center align-items-center"
+    >
       <div class="row">
         <div class="col-12">
           <p class="m-0">TAIWAN台灣旅遊</p>
         </div>
       </div>
     </div>
-    <script type="module" src="./index.js"></script>
   </body>
 </html>
